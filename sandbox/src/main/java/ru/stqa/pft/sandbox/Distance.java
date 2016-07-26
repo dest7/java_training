@@ -11,7 +11,7 @@ public class Distance {
         //System.out.println("Расстояние между двумя точками = " + p1.distance(p2));
 
         Point p1 = new Point(1.5,-2.3);
-        Point p2 = new Point(0,3.6);
+        Point p2 = new Point(1,3.6);
         System.out.println("Расстояние между двумя точками = " + p1.distance(p2));
 
 

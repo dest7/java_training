@@ -13,9 +13,9 @@ public class Point{
     }
 
    // Пока не понял как конструктор собрать
-     public double distance(){
+     public double distance(Point p2){
         //return Math.sqrt(Math.pow((p2.x-p1.x),2)+Math.pow((p2.y-p1.y),2));
-       return Math.sqrt(Math.pow((this.x-this.x),2)+Math.pow((this.y-this.y),2));
+       return Math.sqrt(Math.pow((p2.x-this.x),2)+Math.pow((p2.y-this.y),2));
     }
 }
 
