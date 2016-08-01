@@ -14,7 +14,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
 import static org.openqa.selenium.OutputType.*;
 
-public class GroupDeletionTests {
+public class ContactDeletionTests {
     FirefoxDriver wd;
     
     @BeforeMethod
@@ -24,9 +24,8 @@ public class GroupDeletionTests {
     }
     
     @Test
-    public void testGroupDeletion() {
-        wd.get("http://localhost/addressbook/group.php");
-        wd.findElement(By.id("LoginForm")).click();
+    public void ContactDeletionTests() {
+        wd.get("http://localhost/addressbook/");
         wd.findElement(By.name("user")).click();
         wd.findElement(By.name("user")).clear();
         wd.findElement(By.name("user")).sendKeys("admin");
@@ -34,9 +33,8 @@ public class GroupDeletionTests {
         wd.findElement(By.name("pass")).clear();
         wd.findElement(By.name("pass")).sendKeys("secret");
         wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
-        wd.findElement(By.linkText("groups")).click();
-        wd.findElement(By.name("selected[]")).click();
-        wd.findElement(By.name("delete")).click();
+        wd.findElement(By.linkText("home")).click();
+        wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
         wd.findElement(By.linkText("group page")).click();
     }
     
