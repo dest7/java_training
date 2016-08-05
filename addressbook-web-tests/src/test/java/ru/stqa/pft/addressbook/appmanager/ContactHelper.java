@@ -7,52 +7,48 @@ import ru.stqa.pft.addressbook.model.ContactData;
 /**
  * Created by Edward on 03.08.2016.
  */
-public class ContactHelper {
+public class ContactHelper extends BaseHelper{
     FirefoxDriver wd;
 
     public ContactHelper(FirefoxDriver wd) {
-        this.wd=wd;
+        super(wd);
     }
 
     public void enterNewContactInAb() {
-        wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+        click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
     public void fillContactDataForm(ContactData contactData) {
-        wd.findElement(By.name("firstname")).click();
-        wd.findElement(By.name("firstname")).clear();
-        wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstName());
-        wd.findElement(By.name("lastname")).click();
-        wd.findElement(By.name("lastname")).clear();
-        wd.findElement(By.name("lastname")).sendKeys(contactData.getLastName());
-        wd.findElement(By.name("address")).click();
-        wd.findElement(By.name("address")).clear();
-        wd.findElement(By.name("address")).sendKeys(contactData.getAddress());
-        wd.findElement(By.name("home")).click();
-        wd.findElement(By.name("home")).clear();
-        wd.findElement(By.name("home")).sendKeys(contactData.getPhone());
-        wd.findElement(By.name("email")).click();
-        wd.findElement(By.name("email")).clear();
-        wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
+        type(By.name("firstname"),contactData.getFirstName());
+        type(By.name("lastname"),contactData.getLastName());
+        type(By.name("address"),contactData.getAddress());
+        type(By.name("home"),contactData.getPhone());
+        type(By.name("email"),contactData.getEmail());
+
     }
 
     public void addNewContact() {
-        wd.findElement(By.linkText("add new")).click();
+        click(By.linkText("add new"));
     }
 
     public void deleteSelectedContact() {
-        wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
+        click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+        wd.switchTo().alert().accept();
     }
 
     public void selectContact() {
-        wd.findElement(By.xpath("//tr[3]/td/input")).click();
-    }
-
-    public void goToHome() {
-        wd.findElement(By.linkText("home")).click();
+        click(By.xpath("//tr[3]/td/input"));
     }
 
     public void alertYes() {
         wd.switchTo().alert().accept();
+    }
+
+    public void editContact() {
+        click(By.xpath("//table[@id='maintable']/tbody/tr[3]/td[8]/a/img"));
+    }
+
+    public void updateContact() {
+        click(By.name("update"));
     }
 }
