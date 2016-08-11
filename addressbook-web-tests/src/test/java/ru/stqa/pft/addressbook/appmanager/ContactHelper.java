@@ -1,8 +1,11 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 /**
@@ -19,13 +22,22 @@ public class ContactHelper extends BaseHelper{
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
-    public void fillContactDataForm(ContactData contactData) {
+    public void fillContactDataForm(ContactData contactData, boolean creation) {
         type(By.name("firstname"),contactData.getFirstName());
         type(By.name("lastname"),contactData.getLastName());
         type(By.name("address"),contactData.getAddress());
         type(By.name("home"),contactData.getPhone());
         type(By.name("email"),contactData.getEmail());
 
+        //Сформирован метод, позволяющий проверить наличие или отсутствие элементов
+        // Значением true мы определяем, что элемент на форме должен быть, а fasle а том
+        // что элемента быть не должно на форме
+        //Проверка на то, что элемента быть не должно
+        if (creation){
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+        }else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
     }
 
     public void addNewContact() {

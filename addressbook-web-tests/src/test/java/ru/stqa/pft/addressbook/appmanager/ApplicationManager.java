@@ -36,7 +36,8 @@ public class ApplicationManager {
             wd = new InternetExplorerDriver();
         }
 
-        wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+       //чтобы проверка элементов была мгновенной, нужно отключить тайм-аут или поставить значение 0
+        wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/");
         navigationHelper = new NavigationHelper(wd);
         groupHelper = new GroupHelper(wd);
