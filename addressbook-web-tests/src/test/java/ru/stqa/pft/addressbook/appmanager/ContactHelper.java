@@ -50,18 +50,40 @@ public class ContactHelper extends BaseHelper{
     }
 
     public void selectContact() {
-        click(By.xpath("//tr[3]/td/input"));
+        click(By.name("selected[]"));
     }
 
     public void alertYes() {
         wd.switchTo().alert().accept();
     }
 
+
+//    public void editContact() {
+//        click(By.xpath("//table[@id='maintable']/tbody/tr[3]/td[8]/a/img"));
+//    }
+
     public void editContact() {
-        click(By.xpath("//table[@id='maintable']/tbody/tr[3]/td[8]/a/img"));
+        click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
     }
+
+//table[@id='maintable']/tbody/tr[2]/td[8]/a/img
 
     public void updateContact() {
         click(By.name("update"));
+    }
+    public void returnToHomePage() {
+        click(By.linkText("home"));
+    }
+
+    public void createContact(ContactData contact, boolean b) {
+
+        addNewContact();
+        fillContactDataForm(contact, b);
+        enterNewContactInAb();
+        returnToHomePage();
+    }
+
+       public boolean isThereAContact() {
+        return isElementPresent(By.name("selected[]"));
     }
 }
