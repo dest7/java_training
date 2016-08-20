@@ -3,13 +3,8 @@ package ru.stqa.pft.addressbook.model;
 public class GroupData {
     private int id;
     private final String name;
-
-
-
     private final String header;
     private final String footer;
-
-
 
     public GroupData(String name, String header, String footer) {
         this.id = Integer.MAX_VALUE; //гарантирует, что группа окажется самой последней
@@ -55,11 +50,8 @@ public class GroupData {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         GroupData groupData = (GroupData) o;
-
         return name != null ? name.equals(groupData.name) : groupData.name == null;
-
     }
 
     @Override
