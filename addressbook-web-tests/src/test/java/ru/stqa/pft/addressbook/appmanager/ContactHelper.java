@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 /**
  * Created by Edward on 03.08.2016.
@@ -58,15 +59,11 @@ public class ContactHelper extends BaseHelper{
     }
 
 
-//    public void editContact() {
-//        click(By.xpath("//table[@id='maintable']/tbody/tr[3]/td[8]/a/img"));
-//    }
 
     public void editContact() {
-        click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+        click(By.xpath("//*[@id='maintable']//tr[2]/td[8]/a"));
     }
 
-//table[@id='maintable']/tbody/tr[2]/td[8]/a/img
 
     public void updateContact() {
         click(By.name("update"));
@@ -75,10 +72,10 @@ public class ContactHelper extends BaseHelper{
         click(By.linkText("home"));
     }
 
-    public void createContact(ContactData contact, boolean b) {
+    public void createContact(ContactData contact) {
 
         addNewContact();
-        fillContactDataForm(contact, b);
+        fillContactDataForm(contact, true);
         enterNewContactInAb();
         returnToHomePage();
     }
@@ -86,4 +83,5 @@ public class ContactHelper extends BaseHelper{
        public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
     }
+
 }
