@@ -5,6 +5,9 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.GroupData;
 
+import java.util.HashSet;
+import java.util.List;
+
 /**
  * Created by Edward on 05.08.2016.
  */
@@ -17,16 +20,24 @@ public class ContactModificationTests extends TestBase {
         }
         app.getNavigationHelper().goToHomePage();
         if(! app.getContactHelper().isThereAContact()){
-            app.getContactHelper().createContact(new ContactData("Ed", "JavaTest", "Moscow City", "8-495-1231231", "adressbook@abmail.com","Test1"));
+            app.getContactHelper().createContact(new ContactData("Ed", "JavaTest", null, null, null,null));
+            //app.getContactHelper().createContact(new ContactData("Ed", "JavaTest", "Moscow City", "8-495-1231231", "adressbook@abmail.com","Test1"));
         }
-        int before = app.getContactHelper().getContactCount();
-        app.getContactHelper().selectContact();
+        List<ContactData> before = app.getContactHelper().getContactList();
+        app.getContactHelper().selectContact(before.size() - 1);
         app.getContactHelper().editContact();
-        app.getContactHelper().fillContactDataForm(new ContactData("Ed","Sidor","yaro","911","email.ru",null),false);
+        ContactData contact = new ContactData(before.get(before.size() - 1).getId(),"Ivanov","Sidor",null,null,null);
+        app.getContactHelper().fillContactDataForm(contact,false);
         app.getContactHelper().updateContact();
         app.getContactHelper().returnToHomePage();
-        int after = app.getContactHelper().getContactCount();
-        Assert.assertEquals(after, before);
+        List<ContactData> after = app.getContactHelper().getContactList();
+        Assert.assertEquals(after.size(), before.size());
+
+        before.remove(before.size() - 1);
+        before.add(contact);
+        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(aft
+                er));
+
     }
 }
 
