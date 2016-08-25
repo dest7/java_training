@@ -65,7 +65,7 @@ public class ContactHelper extends BaseHelper{
 
 
     public void editContact() {
-        click(By.xpath("//*[@id='maintable']//tr[2]/td[8]/a"));
+        click(By.xpath("//*[@id='maintable']//tr[2]/td[8]/a/img"));
     }
 
 
@@ -96,7 +96,7 @@ public class ContactHelper extends BaseHelper{
         List<ContactData> contacts = new ArrayList<ContactData>();
         List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
         for (WebElement element : elements){
-            String id = element.findElement(By.tagName("input")).getAttribute("value");
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
             String firstName = element.findElement(By.xpath("./td[3]")).getText();
             String lastName = element.findElement(By.xpath("./td[2]")).getText();
 //            String address = element.getText();
