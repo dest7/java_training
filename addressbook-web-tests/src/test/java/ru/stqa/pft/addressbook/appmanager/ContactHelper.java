@@ -1,14 +1,11 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
-import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,18 +53,25 @@ public class ContactHelper extends BaseHelper{
 
     public void selectContact(int index) {
         wd.findElements(By.name("selected[]")).get(index).click();
+
     }
 
-    public void alertYes() {
-        wd.switchTo().alert().accept();
-    }
-
-
+//    public void alertYes() {
+//        wd.switchTo().alert().accept();
+//    }
 
     public void editContact() {
-        click(By.xpath("//*[@id='maintable']//tr[2]/td[8]/a/img"));
-    }
+        String id = wd.findElement(By.xpath("//table[@id='maintable']/tbody//input")).getAttribute("value");
+       // int id = Integer.parseInt(wd.findElement(By.xpath("//table[@id='maintable']/tbody//input")).getAttribute("value"));
+        
+        wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
 
+       // id=wd.findElement(By.cssSelector("xpath=(//img[@alt='Edit'])"));
+        //table[@id='maintable']/tbody/tr[3]/td/input
+       //такс такс wd.findElement(By.xpath("//*[@id='maintable']//tr[" + id + "]/td[" + id + "]/a/img")).click();
+       // wd.findElement(By.xpath("//*[@id='maintable']//tr[2]/td[" + id + "]/a/img")).click();
+        //click(By.xpath("//*[@id='maintable']//tr[2]/td[8]/a/img"));
+    }
 
     public void updateContact() {
         click(By.name("update"));
@@ -108,4 +112,5 @@ public class ContactHelper extends BaseHelper{
         }
         return contacts;
     }
+
 }
