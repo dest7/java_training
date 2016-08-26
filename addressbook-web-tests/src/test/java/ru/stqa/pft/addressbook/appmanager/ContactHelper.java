@@ -60,11 +60,12 @@ public class ContactHelper extends BaseHelper{
 //        wd.switchTo().alert().accept();
 //    }
 
-    public void editContact() {
+    public void editContact(int index) {
+        wd.findElements(By.name("//table[@id='maintable']/tbody//input")).get(index).click();
         //String id = wd.findElement(By.xpath("//table[@id='maintable']/tbody//input")).getAttribute("value");
-        int id = Integer.parseInt(wd.findElement(By.xpath("//table[@id='maintable']/tbody//input")).getAttribute("value"));
+        //int id = Integer.parseInt(wd.findElement(By.xpath("//table[@id='maintable']/tbody//input")).getAttribute("value"));
 
-        wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
+        //wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
 
        // id=wd.findElement(By.cssSelector("xpath=(//img[@alt='Edit'])"));
         //table[@id='maintable']/tbody/tr[3]/td/input
