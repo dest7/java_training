@@ -10,16 +10,18 @@ import java.util.List;
 
 public class ContactCreationTests extends TestBase{
 
-    @Test (enabled = false)
+    @Test //(enabled = false)
     public void testContactCreation() {
 
         app.goTo().groupPage();
         if (! app.group().isThereAGroup()){
-            app.group().create(new GroupData("Test1", "Test2", "Test3"));
+            app.group().create(new GroupData().withName("Test1").withHeader("Test2").withFooter("Test3"));
         }
         app.goTo().homePage();
         List<ContactData> before = app.contact().list();
-        ContactData contact = new ContactData("Ed", "JavaTest", "Moscow City", "8-495-1231231", "adressbook@abmail.com","Test1");
+        ContactData contact = new ContactData()
+                .withFirstName("Ed").withLastName("JavaTest").withAddress("Moscow City")
+                .withPhone("8-495-1231231").withEmail("adressbook@abmail.com").withGroup("Test1");
         app.contact().addNewContact();
         app.contact().fillContactDataForm(contact,true);
         app.contact().enterNewContactInAb();

@@ -122,8 +122,7 @@ public class ContactHelper extends BaseHelper{
 //            String phone = element.getText();
 //            String email = element.getText();
 //            String group = element.getText();
-            ContactData contact = new ContactData(id,firstName, lastName, null, null, null, null);
-            contacts.add(contact);
+            contacts.add(new ContactData().withId(id).withFirstName(firstName).withLastName(lastName));
         }
         return contacts;
     }
