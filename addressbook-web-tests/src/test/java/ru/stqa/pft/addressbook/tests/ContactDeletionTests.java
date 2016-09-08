@@ -24,16 +24,16 @@ public class ContactDeletionTests extends TestBase{
         if(app.contact().all().size() == 0){
             app.contact().createContact(new ContactData()
                     .withFirstName("Ed").withLastName("JavaTest").withAddress("Moscow City")
-                    .withPhone("8-495-1231231").withEmail("adressbook@abmail.com").withGroup("Test1"));
+                    .withHomePhone("8-495-1231231").withEmail("adressbook@abmail.com").withGroup("Test1"));
         }
     }
 
     @Test //(enabled = false)
     public void testContactDeletion() {
-        Contacts before = app.contact().all();
+        Contacts before = (Contacts) app.contact().all();
         ContactData deleteContact = before.iterator().next();
         app.contact().delete(deleteContact);
-        Contacts after = app.contact().all();
+        Contacts after = (Contacts) app.contact().all();
         assertEquals(after.size(), before.size() - 1);
         assertThat(after, equalTo(before.withOut(deleteContact)));
     }
