@@ -90,7 +90,7 @@ public class ContactHelper extends BaseHelper{
     public void delete(ContactData contact) {
         selectContactById(contact.getId());
         deleteSelectedContact();
-        contactCash = null;
+        //contactCash = null;
         returnToHomePage();
 
     }
@@ -117,12 +117,12 @@ public class ContactHelper extends BaseHelper{
         }
         return new Contacts(contactCash);
     } */
-    public Set<ContactData> all() {
+    public Contacts all() {
         if (contactCash != null){
             return new Contacts(contactCash);
         }
         contactCash = new Contacts();
-        Set<ContactData> contacts = new HashSet<ContactData>();
+        Contacts contacts = new Contacts();
         List<WebElement> rows = wd.findElements(By.name("entry"));
         for (WebElement row : rows){
             List<WebElement> cells = row.findElements(By.tagName("td"));
