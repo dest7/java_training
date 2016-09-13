@@ -177,4 +177,8 @@ public class ContactHelper extends BaseHelper{
         wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
 
     }
+
+    public void pressDetailButton(){
+        wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr[4]/td[7]/a/img"));
+    }
 }
