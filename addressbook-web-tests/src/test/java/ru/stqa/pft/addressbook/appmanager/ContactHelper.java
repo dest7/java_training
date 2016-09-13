@@ -74,7 +74,7 @@ public class ContactHelper extends BaseHelper{
         addNewContact();
         fillContactDataForm(contact, true);
         enterNewContactInAb();
-        contactCash = null;
+       // contactCash = null;
         returnToHomePage();
     }
 
@@ -83,7 +83,7 @@ public class ContactHelper extends BaseHelper{
         editContactById(contact.getId());
         fillContactDataForm(contact,false);
         updateContact();
-        contactCash = null;
+        //contactCash = null;
         returnToHomePage();
     }
 
@@ -98,7 +98,7 @@ public class ContactHelper extends BaseHelper{
     public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
     }
-    public int getContactCount() {
+    public int count() {
         return wd.findElements(By.name("selected[]")).size();
     }
 
@@ -118,17 +118,17 @@ public class ContactHelper extends BaseHelper{
         return new Contacts(contactCash);
     } */
     public Contacts all() {
-        if (contactCash != null){
-            return new Contacts(contactCash);
-        }
-        contactCash = new Contacts();
+//        if (contactCash != null){
+//            return new Contacts(contactCash);
+//        }
+       // contactCash = new Contacts();
         Contacts contacts = new Contacts();
         List<WebElement> rows = wd.findElements(By.name("entry"));
         for (WebElement row : rows){
             List<WebElement> cells = row.findElements(By.tagName("td"));
             int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
-            String firstName = cells.get(1).getText();
-            String lastName = cells.get(2).getText();
+            String firstName = cells.get(2).getText();
+            String lastName = cells.get(1).getText();
             String allPhones = cells.get(5).getText();
             contacts.add(new ContactData().withId(id).withFirstName(firstName).withLastName(lastName)
                     .withAllPhones(allPhones));

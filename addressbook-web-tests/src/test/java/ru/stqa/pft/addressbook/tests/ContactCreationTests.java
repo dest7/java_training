@@ -20,16 +20,15 @@ public class ContactCreationTests extends TestBase{
         app.goTo().homePage();
         Contacts before = app.contact().all();
         ContactData contact = new ContactData()
-                .withFirstName("Ed").withLastName("JavaTest").withAddress("Moscow City")
-                .withHomePhone("8-495-1231231").withEmail("adressbook@abmail.com").withGroup("Test1");
+                .withFirstName("Ed")
+                .withLastName("JavaTest")
+                .withAddress("Moscow City")
+                .withHomePhone("8-495-1231231")
+                .withEmail("adressbook@abmail.com")
+                .withGroup("Test1");
         app.contact().createContact(contact);
-//        app.contact().addNewContact();
-//        app.contact().fillContactDataForm(contact,true);
-//        app.contact().enterNewContactInAb();
-//        app.contact().returnToHomePage();
+        assertThat(app.contact().count(), equalTo(before.size() + 1));
         Contacts after = app.contact().all();
-
-        assertThat(after.size(), equalTo(before.size() + 1));
         assertThat(after, equalTo(
                 before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
 
