@@ -23,8 +23,12 @@ public class ContactCreationTests extends TestBase{
                 .withFirstName("Ed")
                 .withLastName("JavaTest")
                 .withAddress("Moscow City")
-                .withHomePhone("8-495-1231231")
+                .withHomePhone("+7(742)-1231231")
+                .withMobilePhone("33-33-33")
+                .withWorkPhone("22 22 22")
                 .withEmail("adressbook@abmail.com")
+                .withEmailTwo("adressbook2@abmail.com")
+                .withEmailThree("adressbook3@abmail.com")
                 .withGroup("Test1");
         app.contact().createContact(contact);
         assertThat(app.contact().count(), equalTo(before.size() + 1));

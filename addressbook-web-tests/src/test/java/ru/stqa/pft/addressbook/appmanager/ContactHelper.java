@@ -29,8 +29,11 @@ public class ContactHelper extends BaseHelper{
         type(By.name("lastname"),contactData.getLastName());
         type(By.name("address"),contactData.getAddress());
         type(By.name("home"),contactData.getHomePhone());
+        type(By.name("mobile"),contactData.getMobilePhone());
+        type(By.name("work"),contactData.getWorkPhone());
         type(By.name("email"),contactData.getEmail());
-
+        type(By.name("email2"),contactData.getEmailTwo());
+        type(By.name("email3"),contactData.getEmailThree());
         //Сформирован метод, позволяющий проверить наличие или отсутствие элементов
         // Значением true мы определяем, что элемент на форме должен быть, а fasle а том
         // что элемента быть не должно на форме
@@ -150,7 +153,7 @@ public class ContactHelper extends BaseHelper{
         String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
         String work = wd.findElement(By.name("work")).getAttribute("value");
         String address = wd.findElement(By.name("address")).getAttribute("value");
-        String emailOne = wd.findElement(By.name("email")).getAttribute("value");
+        String email = wd.findElement(By.name("email")).getAttribute("value");
         String emailTwo = wd.findElement(By.name("email2")).getAttribute("value");
         String emailThree = wd.findElement(By.name("email3")).getAttribute("value");
         wd.navigate().back();
@@ -162,7 +165,7 @@ public class ContactHelper extends BaseHelper{
                 .withMobilePhone(mobile)
                 .withWorkPhone(work)
                 .withAddress(address)
-                .withEmailOne(emailOne)
+                .withEmail(email)
                 .withEmailTwo(emailTwo)
                 .withEmailThree(emailThree);
     }

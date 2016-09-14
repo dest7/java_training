@@ -25,6 +25,8 @@ public class ContactEmailTests extends TestBase {
                     .withAddress("Moscow City")
                     .withHomePhone("8-495-1231231")
                     .withEmail("adressbook@abmail.com")
+                    .withEmailTwo("adressbook2@abmail.com")
+                    .withEmailThree("adressbook3@abmail.com")
                     .withGroup("Test1"));
         }
     }
@@ -41,7 +43,7 @@ public class ContactEmailTests extends TestBase {
     }
 
     private String mergeEmail(ContactData contact) {
-        return Arrays.asList(contact.getEmailOne(),contact.getEmailTwo(),contact.getEmailThree())
+        return Arrays.asList(contact.getEmail(),contact.getEmailTwo(),contact.getEmailThree())
                 .stream()
                 .filter((s) -> !s.equals(""))
                 .map(ContactEmailTests::cleaned)
