@@ -170,6 +170,10 @@ public class ContactHelper extends BaseHelper{
                 .withEmailThree(emailThree);
     }
 
+   public ContactData infoFromDetailPage(){
+       return null;
+   }
+
     public void initContactModificationById (int id){
 
      /*   WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value='%s']", id)));
@@ -181,7 +185,8 @@ public class ContactHelper extends BaseHelper{
 
     }
 
-    public void pressDetailButton(){
-        wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr[4]/td[7]/a/img"));
+    public void pressDetailButton(int id){
+        wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
+        //wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr[4]/td[7]/a/img"));
     }
 }
