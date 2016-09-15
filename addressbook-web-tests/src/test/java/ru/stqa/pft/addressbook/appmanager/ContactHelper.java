@@ -170,23 +170,28 @@ public class ContactHelper extends BaseHelper{
                 .withEmailThree(emailThree);
     }
 
-   public ContactData infoFromDetailPage(){
-       return null;
-   }
-
     public void initContactModificationById (int id){
+
+        wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
 
      /*   WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value='%s']", id)));
         WebElement row = checkbox.findElement(By.xpath("./../.."));
         List<WebElement> cells = row.findElements(By.tagName("td"));
         cells.get(7).findElement(By.tagName("a")).click();
      */
-        wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
-
     }
 
     public void pressDetailButton(int id){
         wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
         //wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr[4]/td[7]/a/img"));
     }
+
+    public ContactData infoFromDetailPage(ContactData contact){
+        pressDetailButton(contact.getId());
+        String dataFromDetailPage = wd.findElement(By.id("content")).getText();
+        return new ContactData().withDataFromDetailPage(dataFromDetailPage);
+
+    }
+
+
 }

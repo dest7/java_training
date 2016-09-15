@@ -14,6 +14,7 @@ public class ContactData {
     private  String allEmail;
     private  String emailTwo;
     private  String emailThree;
+    private  String dataFromDetailPage;
 
     public ContactData() {
     }
@@ -65,6 +66,9 @@ public class ContactData {
         return emailThree;
     }
 
+    public String  getDataFromDetailPage() {
+        return dataFromDetailPage;
+    }
 
     public ContactData withAllEmail(String allEmail) {
         this.allEmail = allEmail;
@@ -129,7 +133,10 @@ public class ContactData {
         return this;
     }
 
-
+    public ContactData withDataFromDetailPage(String dataFromDetailPage) {
+        this.dataFromDetailPage = dataFromDetailPage;
+        return this;
+    }
 
     public int getId() {
         return id;
@@ -163,6 +170,7 @@ public class ContactData {
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
+
 
 
 }
