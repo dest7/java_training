@@ -69,8 +69,9 @@ public class ContactDetailedTests extends TestBase {
                 .replaceAll("M:", "")
                 .replaceAll("W:", "")
                 .replaceAll("\\s", "")
-                .replaceAll("\n", "");
-                //.replaceAll("[w(?=()]", "");
-                //.replaceAll("\\([a-z0-9_.-]*\\)", "");
+                .replaceAll("\n", "")
+                //.replaceAll("[w(?=()]", "")
+                .replaceAll("([w(?=()]+\\w+@[a-zA-Z_]+?\\.[a-zA-Z])","");
+                
     }
 }
