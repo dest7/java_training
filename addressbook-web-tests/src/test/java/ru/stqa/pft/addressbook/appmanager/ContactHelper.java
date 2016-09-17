@@ -186,10 +186,10 @@ public class ContactHelper extends BaseHelper{
         //wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr[4]/td[7]/a/img"));
     }
 
-    public String infoFromDetailPage(ContactData contact){
+    public ContactData infoFromDetailPage(ContactData contact){
         pressDetailButton(contact.getId());
         String dataFromDetailPage = wd.findElement(By.id("content")).getText();
-        return new String(dataFromDetailPage);
+        return new ContactData(dataFromDetailPage);
 
     }
 

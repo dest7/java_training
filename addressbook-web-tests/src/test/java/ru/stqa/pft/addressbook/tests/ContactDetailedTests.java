@@ -38,11 +38,11 @@ public class ContactDetailedTests extends TestBase {
 
         ContactData contact = app.contact().all().iterator().next();
         ContactData infoFromEditForm = app.contact().infoFromEditForm(contact);
-        String infoFromDetailPage = app.contact().infoFromDetailPage(contact);
-        System.out.println(cleanedDetails(infoFromDetailPage));
-        System.out.println(mergeDetail(infoFromEditForm));
+        ContactData infoFromDetailPage = app.contact().infoFromDetailPage(contact);
+        System.out.println(mergeDetail(infoFromDetailPage));
+        System.out.println(infoFromEditForm.getAllData());
 
-        assertThat(mergeDetail(infoFromEditForm), equalTo(cleanedDetails(infoFromDetailPage)));
+        assertThat(infoFromEditForm.getAllData(), equalTo(mergeDetail(infoFromDetailPage)));
 
 
     }
@@ -63,15 +63,17 @@ public class ContactDetailedTests extends TestBase {
                 .collect(Collectors.joining(""));
     }
 
-    public static String cleanedDetails (String clearDetail){
-        return clearDetail
-                .replaceAll("H:", "")
+    public static String cleanedDetails (String details){
+        return details.replaceAll("H:", "")
                 .replaceAll("M:", "")
                 .replaceAll("W:", "")
                 .replaceAll("\\s", "")
                 .replaceAll("\n", "")
-                //.replaceAll("[w(?=()]", "")
-                .replaceAll("([w(?=()]+\\w+@[a-zA-Z_]+?\\.[a-zA-Z])","");
-                
+                .replaceAll("\\(w.*\\)", "");
+               // .replaceAll("[w_(?=()]", "")
+                //.replaceAll("^w(.*+^m)","");
+                //.replaceAll("\\([a-z0-9_.-]*\\)", "");
+                //.replaceAll("(\\w+@[a-zA-Z_]+?\\.[a-zA-Z])","");
+
     }
 }

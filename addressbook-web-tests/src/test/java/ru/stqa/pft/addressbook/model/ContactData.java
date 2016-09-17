@@ -17,6 +17,9 @@ public class ContactData {
     private String dataFromDetailPage;
     private  String allData;
 
+    public ContactData(String dataFromDetailPage) {
+
+    }
 
 
     public String getAllData() {
