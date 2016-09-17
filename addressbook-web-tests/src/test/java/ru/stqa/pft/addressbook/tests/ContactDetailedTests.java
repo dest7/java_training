@@ -38,19 +38,12 @@ public class ContactDetailedTests extends TestBase {
 
         ContactData contact = app.contact().all().iterator().next();
         ContactData infoFromEditForm = app.contact().infoFromEditForm(contact);
-        ContactData infoFromDetailPage = app.contact().infoFromDetailPage(contact);
-        System.out.println(infoFromDetailPage.getDataFromDetailPage());
+        String infoFromDetailPage = app.contact().infoFromDetailPage(contact);
+        System.out.println(cleanedDetails(infoFromDetailPage));
         System.out.println(mergeDetail(infoFromEditForm));
-       // assertThat(contact.getDataFromDetailPage(), equalTo(mergeDetail(infoFromEditForm)));
-        assertThat(mergeDetail(infoFromEditForm), equalTo(infoFromDetailPage.getDataFromDetailPage()));
-        assertThat(cleanedDetails(mergeDetail(infoFromDetailPage)), equalTo(infoFromEditForm.getDataFromDetailPage()));
 
-//        ContactData contact = app.contact().allContacts().iterator().next();
-//        ContactData contactInfoFormEditForm = app.contact().infoFormEditForm(contact);
-//        ContactData contactInfoFromInfoPage = app.contact().infoFromInfoPage(contact);
-//        //System.out.println(mergeAllDataFromEditForm(contactInfoFormEditForm));
-//        //System.out.println(cleanedDataFromInfoPage(contactInfoFromInfoPage.getAllDataFromInfoPage()));
-//        assertThat(mergeAllDataFromEditForm(contactInfoFormEditForm), equalTo(cleanedDataFromInfoPage(contactInfoFromInfoPage.getAllDataFromInfoPage())));
+        assertThat(mergeDetail(infoFromEditForm), equalTo(cleanedDetails(infoFromDetailPage)));
+
 
     }
 
@@ -67,13 +60,17 @@ public class ContactDetailedTests extends TestBase {
                 .stream()
                 .filter((s) -> !s.equals(""))
                 .map(ContactDetailedTests::cleanedDetails)
-                .collect(Collectors.joining("\n"));
-    }
-    private static String cleaned(String email) {
-        return email.trim();
+                .collect(Collectors.joining(""));
     }
 
     public static String cleanedDetails (String clearDetail){
-        return clearDetail.replaceAll("\\s", "").replaceAll("\n", "").replaceAll("\\([a-z0-9_.-]*\\)", "").replaceAll("H:", "").replaceAll("M:", "").replaceAll("W:", "");
+        return clearDetail
+                .replaceAll("H:", "")
+                .replaceAll("M:", "")
+                .replaceAll("W:", "")
+                .replaceAll("\\s", "")
+                .replaceAll("\n", "");
+                //.replaceAll("[w(?=()]", "");
+                //.replaceAll("\\([a-z0-9_.-]*\\)", "");
     }
 }

@@ -14,8 +14,14 @@ public class ContactData {
     private  String allEmail;
     private  String emailTwo;
     private  String emailThree;
-    private  String dataFromDetailPage;
+    private String dataFromDetailPage;
+    private  String allData;
 
+
+
+    public String getAllData() {
+        return allData;
+    }
     public ContactData() {
     }
     public String getFirstName() {
@@ -66,7 +72,7 @@ public class ContactData {
         return emailThree;
     }
 
-    public String  getDataFromDetailPage() {
+    public String getDataFromDetailPage() {
         return dataFromDetailPage;
     }
 
@@ -135,6 +141,11 @@ public class ContactData {
 
     public ContactData withDataFromDetailPage(String dataFromDetailPage) {
         this.dataFromDetailPage = dataFromDetailPage;
+        return this;
+    }
+
+    public ContactData withAllData(String allData) {
+        this.allData = allData;
         return this;
     }
 
