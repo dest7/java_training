@@ -167,7 +167,8 @@ public class ContactHelper extends BaseHelper{
                 .withAddress(address)
                 .withEmail(email)
                 .withEmailTwo(emailTwo)
-                .withEmailThree(emailThree);
+                .withEmailThree(emailThree)
+                ;
     }
 
     public void initContactModificationById (int id){
@@ -189,9 +190,10 @@ public class ContactHelper extends BaseHelper{
     public ContactData infoFromDetailPage(ContactData contact){
         pressDetailButton(contact.getId());
         String dataFromDetailPage = wd.findElement(By.id("content")).getText();
-        return new ContactData(dataFromDetailPage);
+        return new ContactData().withId(contact.getId()).withDataFromDetailPage(dataFromDetailPage);
 
     }
+
 
 
 }

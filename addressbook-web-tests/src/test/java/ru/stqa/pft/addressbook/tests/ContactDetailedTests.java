@@ -37,39 +37,86 @@ public class ContactDetailedTests extends TestBase {
     public void testContactDetails(){
 
         ContactData contact = app.contact().all().iterator().next();
-        ContactData infoFromEditForm = app.contact().infoFromEditForm(contact);
-        ContactData infoFromDetailPage = app.contact().infoFromDetailPage(contact);
-        System.out.println(mergeDetail(infoFromDetailPage));
-        System.out.println(infoFromEditForm.getAllData());
+        ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
+        ContactData contactInfoFromDetailPage = app.contact().infoFromDetailPage(contact);
 
-        assertThat(infoFromEditForm.getAllData(), equalTo(mergeDetail(infoFromDetailPage)));
+        System.out.println(mergeAllInfo(contactInfoFromEditForm));
+        System.out.println(contactInfoFromDetailPage.getDataFromDetailPage());
 
+        //assertThat(mergeDetail(contactInfoFromEditForm), equalTo(contactInfoFromDetailPage.getDataFromDetailPage()));
+        assertThat(contactInfoFromDetailPage.getDataFromDetailPage(), equalTo(mergeAllInfo(contactInfoFromEditForm)));
 
     }
 
-    private String mergeDetail(ContactData contact) {
-        return Arrays.asList(contact.getFirstName(),
-                contact.getLastName(),
-                contact.getAddress(),
-                contact.getHomePhone(),
-                contact.getMobilePhone(),
-                contact.getWorkPhone(),
-                contact.getEmail(),
-                contact.getEmailTwo(),
-                contact.getEmailThree())
-                .stream()
-                .filter((s) -> !s.equals(""))
+    private String mergeAllInfo(ContactData contact) {
+
+        String firstAndLastName = Arrays.asList(contact.getFirstName(), contact.getLastName())
+                .stream().filter(s -> !(s == null) && !s.equals(""))
+              //  .map(ContactDetailedTests::cleanedDetails)
+                .collect(Collectors.joining(" "));
+
+        String address = Arrays.asList(contact.getAddress())
+                .stream().filter(s -> !(s == null) && !s.equals(""))
+            //    .map(ContactDetailedTests::cleanedDetails)
+                .collect(Collectors.joining("\n"));
+
+        String homePhone = "H: " + Arrays.asList(contact.getHomePhone())
+                .stream().filter(s -> !(s == null) && !s.equals(""))
+              //  .map(ContactDetailedTests::cleanedDetails)
+                .collect(Collectors.joining("\n")) + "\n";
+
+        String mobilePhone = "M: " + Arrays.asList(contact.getMobilePhone())
+                .stream().filter(s -> !(s == null) && !s.equals(""))
+              //  .map(ContactDetailedTests::cleanedDetails)
+                .collect(Collectors.joining("\n")) + "\n";
+
+        String workPhone = "W: " + Arrays.asList(contact.getWorkPhone())
+                .stream().filter(s -> !(s == null) && !s.equals(""))
+               // .map(ContactDetailedTests::cleanedDetails)
+                .collect(Collectors.joining("\n")) + "\n";
+
+        String email = Arrays.asList(contact.getEmail())
+                .stream().filter(s -> !(s == null) && !s.equals(""))
                 .map(ContactDetailedTests::cleanedDetails)
-                .collect(Collectors.joining(""));
+                .collect(Collectors.joining("\n"));
+
+        String emailTwo = Arrays.asList(contact.getEmailTwo())
+                .stream().filter(s -> !(s == null) && !s.equals(""))
+              //  .map(ContactDetailedTests::cleanedDetails)
+                .collect(Collectors.joining("\n"));
+
+        String emailThree = Arrays.asList(contact.getEmailThree())
+                .stream().filter(s -> !(s == null) && !s.equals(""))
+                //.map(ContactDetailedTests::cleanedDetails)
+                .collect(Collectors.joining("\n"));
+
+        return firstAndLastName + "\n" + address + "\n\n" + homePhone + mobilePhone + workPhone + "\n" + email +
+                " (www." + email.substring(email.indexOf("@") + 1) + ")\n" +
+                emailTwo + " (www." + emailTwo.substring(emailTwo.indexOf("@") + 1) + ")\n" +
+                emailThree + " (www." + emailThree.substring(emailThree.indexOf("@") + 1) + ")";
+
+//        return Arrays.asList(contact.getFirstName(),
+//                contact.getLastName(),
+//                contact.getAddress(),
+//                contact.getHomePhone(),
+//                contact.getMobilePhone(),
+//                contact.getWorkPhone(),
+//                contact.getEmail(),
+//                contact.getEmailTwo(),
+//                contact.getEmailThree())
+//                .stream()
+//                .filter((s) -> !s.equals(""))
+//                .map(ContactDetailedTests::cleanedDetails)
+//                .collect(Collectors.joining("\n"));
     }
 
     public static String cleanedDetails (String details){
-        return details.replaceAll("H:", "")
-                .replaceAll("M:", "")
-                .replaceAll("W:", "")
+        return details
+              //  .replaceAll("M:", "")
+               // .replaceAll("W:", "")
                 .replaceAll("\\s", "")
-                .replaceAll("\n", "")
-                .replaceAll("\\(w.*\\)", "");
+                .replaceAll("\n", "");
+                //.replaceAll("\\(w.*\\)", "");
                // .replaceAll("[w_(?=()]", "")
                 //.replaceAll("^w(.*+^m)","");
                 //.replaceAll("\\([a-z0-9_.-]*\\)", "");
