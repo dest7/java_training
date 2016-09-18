@@ -14,16 +14,12 @@ public class ContactData {
     private  String allEmail;
     private  String emailTwo;
     private  String emailThree;
-    private String dataFromDetailPage;
+    private  String dataFromDetailPage;
     private  String allData;
 
-    public ContactData(String dataFromDetailPage) {
 
-    }
-
-
-    public String getAllData() {
-        return allData;
+    public ContactData getAllData(ContactData contact) {
+        return contact;
     }
     public ContactData() {
     }
