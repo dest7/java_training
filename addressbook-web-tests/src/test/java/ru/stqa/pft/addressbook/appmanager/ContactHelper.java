@@ -34,6 +34,7 @@ public class ContactHelper extends BaseHelper{
         type(By.name("email"),contactData.getEmail());
         type(By.name("email2"),contactData.getEmailTwo());
         type(By.name("email3"),contactData.getEmailThree());
+        attach(By.name("photo"),contactData.getPhoto());
         //Сформирован метод, позволяющий проверить наличие или отсутствие элементов
         // Значением true мы определяем, что элемент на форме должен быть, а fasle а том
         // что элемента быть не должно на форме
