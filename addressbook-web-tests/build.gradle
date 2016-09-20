@@ -13,6 +13,7 @@ dependencies{
     compile 'com.thoughtworks.xstream:xstream:1.4.9' // для работы с файлами разных форматов
     compile 'com.google.code.gson:gson:2.7' //для работы с файлами разных форматов
     compile 'ch.qos.logback:logback-classic:1.1.7' // для протоколирования, логирования
+    compile 'mysql:mysql-connector-java:6.0.4' // mysql библиотека для соединения
 }
 
 task testGroups(type: Test) {
