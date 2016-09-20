@@ -15,3 +15,5 @@ gradle-app.setting
 .idea/workspace.xml
 *.xml
 addressbook-web-tests/.idea/workspace.xml
+*.log
+addressbook-web-tests/.idea/workspace.xml
