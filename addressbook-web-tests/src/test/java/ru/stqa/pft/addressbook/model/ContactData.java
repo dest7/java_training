@@ -262,15 +262,15 @@ public class ContactData {
         return "ContactData{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", address='" + address + '\'' +
-                ", homePhone='" + homePhone + '\'' +
-                ", mobilePhone='" + mobilePhone + '\'' +
-                ", workPhone='" + workPhone + '\'' +
-                ", email='" + email + '\'' +
-                ", emailTwo='" + emailTwo + '\'' +
-                ", emailThree='" + emailThree + '\'' +
-                ", group='" + group + '\'' +
+              //  ", lastName='" + lastName + '\'' +
+               // ", address='" + address + '\'' +
+             //   ", homePhone='" + homePhone + '\'' +
+             //   ", mobilePhone='" + mobilePhone + '\'' +
+              //  ", workPhone='" + workPhone + '\'' +
+               // ", email='" + email + '\'' +
+               // ", emailTwo='" + emailTwo + '\'' +
+               // ", emailThree='" + emailThree + '\'' +
+                //", group='" + group + '\'' +
                 '}';
     }
 
