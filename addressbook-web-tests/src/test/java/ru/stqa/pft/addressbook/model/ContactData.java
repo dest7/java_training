@@ -32,6 +32,7 @@ public class ContactData {
     private  String address;
 
     @Expose
+
     @Column(name = "home")
     @Type(type = "text")
     private  String homePhone;
@@ -81,8 +82,49 @@ public class ContactData {
     @Type(type = "text")
     private String photo;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ContactData that = (ContactData) o;
+
+        if (id != that.id) return false;
+        if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
+        if (lastName != null ? !lastName.equals(that.lastName) : that.lastName != null) return false;
+        if (address != null ? !address.equals(that.address) : that.address != null) return false;
+        if (homePhone != null ? !homePhone.equals(that.homePhone) : that.homePhone != null) return false;
+        if (mobilePhone != null ? !mobilePhone.equals(that.mobilePhone) : that.mobilePhone != null) return false;
+        if (workPhone != null ? !workPhone.equals(that.workPhone) : that.workPhone != null) return false;
+        if (email != null ? !email.equals(that.email) : that.email != null) return false;
+        if (emailTwo != null ? !emailTwo.equals(that.emailTwo) : that.emailTwo != null) return false;
+        if (emailThree != null ? !emailThree.equals(that.emailThree) : that.emailThree != null) return false;
+        return group != null ? group.equals(that.group) : that.group == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (address != null ? address.hashCode() : 0);
+        result = 31 * result + (homePhone != null ? homePhone.hashCode() : 0);
+        result = 31 * result + (mobilePhone != null ? mobilePhone.hashCode() : 0);
+        result = 31 * result + (workPhone != null ? workPhone.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (emailTwo != null ? emailTwo.hashCode() : 0);
+        result = 31 * result + (emailThree != null ? emailThree.hashCode() : 0);
+        result = 31 * result + (group != null ? group.hashCode() : 0);
+        return result;
+    }
+
     public File getPhoto() {
-        return new File(photo);
+        if (photo == null || photo.equals("")) {
+            return null;
+        } else {
+            return new File(photo);
+        }
     }
 
     public ContactData withPhoto(File photo) {
@@ -224,26 +266,6 @@ public class ContactData {
         return id;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        ContactData that = (ContactData) o;
-
-        if (id != that.id) return false;
-        if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
-        return lastName != null ? lastName.equals(that.lastName) : that.lastName == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
-        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
-        return result;
-    }
     @Override
     public String toString() {
         return "ContactData{" +
