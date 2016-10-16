@@ -48,10 +48,10 @@ public class ContactCreationTests extends TestBase{
 //            app.group().create(new GroupData().withName("Test1").withHeader("Test2").withFooter("Test3"));
 //        }
         app.goTo().homePage();
-        Contacts before = app.contact().all();
+        Contacts before = app.db().contacts();
         app.contact().createContact(contact);
         assertThat(app.contact().count(), equalTo(before.size() + 1));
-        Contacts after = app.contact().all();
+        Contacts after = app.db().contacts();
         assertThat(after, equalTo(
                 before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
     }
@@ -65,8 +65,8 @@ public class ContactCreationTests extends TestBase{
             app.group().create(new GroupData().withName("Test1").withHeader("Test2").withFooter("Test3"));
         }
         app.goTo().homePage();
-        File photo = new File("src/test/resources/test.png");
-        Contacts before = app.contact().all();
+        //File photo = new File("src/test/resources/test.png");
+        Contacts before = app.db().contacts();
         ContactData contact = new ContactData()
                 .withFirstName("Ed")
                 .withLastName("JavaTest")
@@ -77,11 +77,12 @@ public class ContactCreationTests extends TestBase{
                 .withEmail("adressbook@abmail.com")
                 .withEmailTwo("adressbook2@abmail.com")
                 .withEmailThree("adressbook3@abmail.com")
-                .withGroup("Test1")
-                .withPhoto(photo);
+                .withGroup("[none]");
+                //.withPhoto(photo);
         app.contact().createContact(contact);
-        assertThat(app.contact().count(), equalTo(before.size() + 1));
-        Contacts after = app.contact().all();
+        app.goTo().groupPage();
+//        assertThat(app.contact().count(), equalTo(before.size() + 1));
+        Contacts after = app.db().contacts();
         assertThat(after, equalTo(
                 before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
     }

@@ -257,6 +257,23 @@ public class ContactData {
         return this;
     }
 
+    @Override
+    public String toString() {
+        return "ContactData{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", homePhone='" + homePhone + '\'' +
+                ", mobilePhone='" + mobilePhone + '\'' +
+                ", workPhone='" + workPhone + '\'' +
+                ", email='" + email + '\'' +
+                ", emailTwo='" + emailTwo + '\'' +
+                ", emailThree='" + emailThree + '\'' +
+                ", group='" + group + '\'' +
+                '}';
+    }
+
     public ContactData withAllData(String allData) {
         this.allData = allData;
         return this;
@@ -265,16 +282,5 @@ public class ContactData {
     public int getId() {
         return id;
     }
-
-    @Override
-    public String toString() {
-        return "ContactData{" +
-                "id='" + id + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
-    }
-
-
 
 }

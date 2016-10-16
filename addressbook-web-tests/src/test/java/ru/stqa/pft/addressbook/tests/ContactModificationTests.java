@@ -18,27 +18,37 @@ public class ContactModificationTests extends TestBase {
 
     public void ensurePreconditions(){
         if(app.db().contacts().size() == 0){
-            app.goTo().homePage();
+
             app.contact().createContact(new ContactData()
                     .withFirstName("Ed")
                     .withLastName("JavaTest")
                     .withAddress("Moscow City")
-                    .withHomePhone("8-495-1231231")
+                    .withHomePhone("+7(742)-1231231")
+                    .withMobilePhone("33-33-33")
+                    .withWorkPhone("22 22 22")
                     .withEmail("adressbook@abmail.com")
+                    .withEmailTwo("adressbook2@abmail.com")
+                    .withEmailThree("adressbook3@abmail.com")
                     .withGroup("Test1"));
+            app.goTo().homePage();
         }
     }
 
     @Test //(enabled = false)
     public void testContactModification(){
+        app.goTo().homePage();
         Contacts before = app.db().contacts();
         ContactData modifiedContact = before.iterator().next();
         ContactData contact = new ContactData().withId(modifiedContact.getId())
-                .withFirstName("Sidor")
-                .withLastName("Ivanov")
+                .withFirstName("Ivanov")
+                .withLastName("Sidor")
                 .withAddress("Moscow")
-                .withHomePhone("8-495-7777777")
-                .withEmail("adressbook@abmail.ru");
+                .withHomePhone("+7(742)-6666666")
+                .withMobilePhone("44-44-44")
+                .withWorkPhone("55 55 55")
+                .withEmail("adressbook@abmail.ru")
+                .withEmailTwo("adressbook2@abmail.ru")
+                .withEmailThree("adressbook3@abmail.ru");
         app.goTo().homePage();
         app.contact().modify(contact);
         assertThat(app.contact().count(), equalTo(before.size()));
