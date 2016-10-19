@@ -26,8 +26,8 @@ public class ContactEmailTests extends TestBase {
                     .withHomePhone("8-495-1231231")
                     .withEmail("adressbook@abmail.com")
                     .withEmailTwo("adressbook2@abmail.com")
-                    .withEmailThree("adressbook3@abmail.com")
-                    .withGroup("Test1"));
+                    .withEmailThree("adressbook3@abmail.com"));
+                    //.withGroup("Test1"));
         }
     }
 

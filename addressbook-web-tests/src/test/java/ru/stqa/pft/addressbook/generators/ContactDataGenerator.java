@@ -69,8 +69,8 @@ public class ContactDataGenerator {
                     .withWorkPhone(String.format("22 22 22", i))
                     .withEmail(String.format("adressbook@abmail.com %s", i))
                     .withEmailTwo(String.format("adressbook2@abmail.com %s", i))
-                    .withEmailThree(String.format("adressbook3@abmail.com %s", i))
-                    .withGroup(String.format("Test1", i)));
+                    .withEmailThree(String.format("adressbook3@abmail.com %s", i)));
+                   // .withGroup(String.format("Test1", i)));
         }
         return contacts;
     }

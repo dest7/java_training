@@ -28,8 +28,8 @@ public class ContactModificationTests extends TestBase {
                     .withWorkPhone("22 22 22")
                     .withEmail("adressbook@abmail.com")
                     .withEmailTwo("adressbook2@abmail.com")
-                    .withEmailThree("adressbook3@abmail.com")
-                    .withGroup("Test1"));
+                    .withEmailThree("adressbook3@abmail.com"));
+                    //.withGroup("Test1"));
             app.goTo().homePage();
         }
     }

@@ -17,5 +17,8 @@ gradle-app.setting
 addressbook-web-tests/.idea/workspace.xml
 *.log
 addressbook-web-tests/.idea/workspace.xml
-*.xml
-addressbook-web-tests/.idea/workspace.xml
+
+addressbook-web-tests/.idea/
+
+addressbook-web-tests/.idea/modules
+

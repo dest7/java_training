@@ -23,7 +23,7 @@ public class ContactPhoneTests extends TestBase {
         if(app.contact().all().size() == 0){
             app.contact().createContact(new ContactData()
                     .withFirstName("Ed").withLastName("JavaTest").withAddress("Moscow City")
-                    .withHomePhone("8-495-1231231").withEmail("adressbook@abmail.com").withGroup("Test1"));
+                    .withHomePhone("8-495-1231231").withEmail("adressbook@abmail.com")/*.withGroup("Test1")*/);
         }
     }
 
