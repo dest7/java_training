@@ -27,4 +27,8 @@ public class NavigationHelper extends BaseHelper{
         }
         click(By.linkText("home"));
     }
+
+    public void selectGroupOnHomePage() {
+        click(By.xpath("//*[@id=\"content\"]/div/i/a"));
+    }
 }

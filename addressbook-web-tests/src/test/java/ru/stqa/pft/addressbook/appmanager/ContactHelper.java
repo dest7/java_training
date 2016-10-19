@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.List;
 
@@ -200,5 +201,45 @@ public class ContactHelper extends BaseHelper{
     }
 
 
+    public void ContactAddToGroup(ContactData contact, GroupData group) {
+        selectGroupInList(group.getName());
+        selectContactById(contact.getId());
+        selectGroupToAdd(group.getName());
+        addToGroup();
+    }
 
+    private void selectGroupToAdd(String group) {
+        new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(group);
+    }
+
+    public void selectGroupInList(String name){
+        if (!wd.findElement(By.xpath("//form[@id='right']/select//option[2]")).isSelected()) {
+            wd.findElement(By.xpath("//form[@id='right']/select//option[2]")).click();
+        }
+//        if (!wd.findElement(By.xpath("//form[@id='right']//select[normalize-space(.)='[all] [none] Test1']//option[2]")).isSelected()) {
+//            wd.findElement(By.xpath("//form[@id='right']//select[normalize-space(.)='"+ name +"']//option[2]")).click();
+    }
+
+
+    public void addToGroupById(int id) {
+        addToGroup();
+    }
+
+    private void addToGroup() {
+        click(By.name("add"));
+    }
+
+    private void clickRemoveFromGroup() {
+        click(By.name("remove"));
+    }
+
+    private void selectGroup(String group) {
+        new Select(wd.findElement(By.name("group"))).selectByVisibleText(group);
+    }
+
+    public void removeContactFromGroup(ContactData contact, GroupData group) {
+        selectGroup(group.getName());
+        selectContactById(contact.getId());
+        clickRemoveFromGroup();
+    }
 }
