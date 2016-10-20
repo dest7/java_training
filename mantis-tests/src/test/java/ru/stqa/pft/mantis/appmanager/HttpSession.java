@@ -37,7 +37,8 @@ public class HttpSession {
         post.setEntity(new UrlEncodedFormEntity(params));
         CloseableHttpResponse response = httpclient.execute(post);
         String body = geTextFrom(response);
-        return body.contains(String.format("<span class=\"italic\">%s</span>", username));
+        return body.contains(String.format("<span id=\"logged-in-user\">%s</span>", username));
+        //<span class="italic">%s</span>"
     }
 
     private String geTextFrom(CloseableHttpResponse response) throws IOException {
@@ -52,6 +53,6 @@ public class HttpSession {
         HttpGet get = new HttpGet(app.getProperty("web.baseUrl") + "/index.php");
         CloseableHttpResponse response = httpclient.execute(get);//выполняем запрос и получаем ответ в response
         String body = geTextFrom(response);//получаем текст ответа
-        return body.contains(String.format("<span class=\"italic\">%s</span>", username));
+        return body.contains(String.format("<span id=\"logged-in-user\">%s</span>", username));
     }
 }
