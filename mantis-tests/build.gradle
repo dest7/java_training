@@ -10,7 +10,11 @@ dependencies{
     compile 'org.seleniumhq.selenium:selenium-java:2.53.1'
     compile 'org.hamcrest:java-hamcrest:2.0.0.0'
     compile 'commons-net:commons-net:3.5'//для работы с ftp протоколом
-
+    compile 'org.subethamail:subethasmtp:3.1.7' // для работы класса MailHelper. Внутритестовый почтовый сервер
+    compile 'ru.lanwen.verbalregex:java-verbal-expressions:1.4'
+    compile 'io.fabric8.ipaas.apps:cassandra:2.2.153'
+    compile 'biz.futureware.mantis:mantis-axis-soap-client:1.2.19'
+    compile 'ch.qos.logback:logback-classic:1.1.7' // для протоколирования, логирования
 }
 
  test {
