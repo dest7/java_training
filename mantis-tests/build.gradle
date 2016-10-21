@@ -15,6 +15,7 @@ dependencies{
     compile 'io.fabric8.ipaas.apps:cassandra:2.2.153'
     compile 'biz.futureware.mantis:mantis-axis-soap-client:1.2.19'
     compile 'ch.qos.logback:logback-classic:1.1.7' // для протоколирования, логирования
+    compile 'biz.futureware.mantis:mantis-axis-soap-client:1.2.19'
 }
 
  test {
