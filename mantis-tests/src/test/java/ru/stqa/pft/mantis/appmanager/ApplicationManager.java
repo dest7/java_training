@@ -18,12 +18,15 @@ import java.util.concurrent.TimeUnit;
  */
 public class ApplicationManager {
     private final Properties properties;
+    SessionHelper sessionHelper;
     private WebDriver wd;
 
     private String browser;
     private RegistrationHelper registrationHelper;
     private FtpHelper ftp;
     private MailHelper mailHelper;
+    private JamesHelper jamesHelper;
+    private ResetPassword resetPassword;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -86,6 +89,28 @@ public class ApplicationManager {
             mailHelper = new MailHelper(this);
         }
         return mailHelper;
+    }
+
+    public JamesHelper james() {
+        if (jamesHelper == null) {
+            jamesHelper = new JamesHelper(this);
+        }
+        return jamesHelper;
+    }
+
+    public SessionHelper sessionHelper() {
+        if (sessionHelper == null) {
+            sessionHelper = new SessionHelper(this);
+        }
+        return sessionHelper;
+
+    }
+
+    public ResetPassword resetPassword() {
+        if (resetPassword == null) {
+            resetPassword = new ResetPassword(this);
+        }
+        return resetPassword;
     }
 
 }
