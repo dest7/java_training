@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c783d844-7fa4-44d7-892a-ab228e600ed6" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/libraries/Gradle__com_google_code_gson_gson_2_3_1.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../addressbook-hybrid/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../addressbook-hybrid/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../addressbook-hybrid/src/test/java/ru/stqa/pft/addressbook/appmanager/GroupHelper.java" afterPath="$PROJECT_DIR$/../addressbook-hybrid/src/test/java/ru/stqa/pft/addressbook/appmanager/GroupHelper.java" />
     </list>
     <ignored path="addressbook-web-tests.iws" />
     <ignored path=".idea/workspace.xml" />

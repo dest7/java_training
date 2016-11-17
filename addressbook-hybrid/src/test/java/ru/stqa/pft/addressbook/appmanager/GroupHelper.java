@@ -73,10 +73,18 @@ public class GroupHelper extends BaseHelper {
     }
 
     public void graph() throws InterruptedException {
-            wd.findElement(By.linkText("Главная")).click();
-            wd.findElement(By.linkText("Проведенные процедуры")).click();
-            wd.findElement(By.linkText("Статистика процедур ГД график")).click();
-            wd.findElement(By.linkText("Отмена")).click();
+//            wd.findElement(By.linkText("Главная")).click();
+//            wd.findElement(By.linkText("Проведенные процедуры")).click();
+//            wd.findElement(By.linkText("Статистика процедур ГД график")).click();
+//            wd.findElement(By.linkText("Отмена")).click();
+
+
+            wd.findElement(By.xpath("//a[contains(@href, '/Reports/Pages/Folder.aspx')]")).click();
+            wd.findElement(By.xpath("//div[9]/table/tbody/tr/td[2]/a")).click();
+            wd.findElement(By.xpath("//div[8]/table/tbody/tr/td[2]/a")).click();
+            wd.findElement(By.xpath("//div[@id='ctl31_AsyncWait_Wait']/table/tbody/tr/td[2]/div/a")).click();
+
+
             wd.findElement(By.id("ctl31_ctl04_ctl07_ddDropDownButton")).click();
             wd.findElement(By.id("ctl31_ctl04_ctl07_divDropDown_ctl00")).click();
             wd.findElement(By.id("ctl31_ctl04_ctl07_divDropDown_ctl05")).click();
