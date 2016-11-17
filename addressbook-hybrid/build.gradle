@@ -1,0 +1,48 @@
+apply plugin: 'java'
+
+
+repositories{
+    mavenCentral()
+}
+
+dependencies{
+    compile 'org.testng:testng:6.9.10'
+    compile 'org.seleniumhq.selenium:selenium-java:2.53.1'
+    compile 'org.hamcrest:java-hamcrest:2.0.0.0'
+    compile 'com.beust:jcommander:1.48' //для разбора опций командной строки
+    compile 'com.thoughtworks.xstream:xstream:1.4.9' // для работы с файлами разных форматов
+    compile 'com.google.code.gson:gson:2.7' //для работы с файлами разных форматов
+    compile 'ch.qos.logback:logback-classic:1.1.7' // для протоколирования, логирования
+    compile 'mysql:mysql-connector-java:6.0.4' // mysql библиотека для соединения
+    compile 'org.hibernate:hibernate-core:5.2.2.Final' //для jdbc - подключений
+}
+
+task testGroups(type: Test) {
+    useTestNG(){
+        suites 'src/test/resources/testng-groups.xml'
+    }
+    if (project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')){
+        systemProperty 'target', "${target}"
+    }
+    if (project.hasProperty('verifyUI')){
+        systemProperty 'verifyUI', "${verifyUI}"
+    }
+}
+
+task testContacts(type: Test) {
+    useTestNG(){
+        suites 'src/test/resources/testng-contacts.xml'
+    }
+    if (project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')){
+        systemProperty 'target', "${target}"
+    }
+    if (project.hasProperty('verifyUI')){
+        systemProperty 'verifyUI', "${verifyUI}"
+    }
+}

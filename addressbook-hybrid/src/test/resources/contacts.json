@@ -1,0 +1,38 @@
+[
+  {
+    "firstName": "Ed 0",
+    "lastName": "JavaTest 0",
+    "address": "Moscow City 0",
+    "homePhone": "+7(742)-1231231 0",
+    "mobilePhone": "33-33-33",
+    "workPhone": "22 22 22",
+    "email": "adressbook@abmail.com 0",
+    "emailTwo": "adressbook2@abmail.com 0",
+    "emailThree": "adressbook3@abmail.com 0",
+    "group": "Test1"
+  },
+  {
+    "firstName": "Ed 1",
+    "lastName": "JavaTest 1",
+    "address": "Moscow City 1",
+    "homePhone": "+7(742)-1231231 1",
+    "mobilePhone": "33-33-33",
+    "workPhone": "22 22 22",
+    "email": "adressbook@abmail.com 1",
+    "emailTwo": "adressbook2@abmail.com 1",
+    "emailThree": "adressbook3@abmail.com 1",
+    "group": "Test1"
+  },
+  {
+    "firstName": "Ed 2",
+    "lastName": "JavaTest 2",
+    "address": "Moscow City 2",
+    "homePhone": "+7(742)-1231231 2",
+    "mobilePhone": "33-33-33",
+    "workPhone": "22 22 22",
+    "email": "adressbook@abmail.com 2",
+    "emailTwo": "adressbook2@abmail.com 2",
+    "emailThree": "adressbook3@abmail.com 2",
+    "group": "Test1"
+  }
+]
