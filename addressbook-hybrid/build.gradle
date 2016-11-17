@@ -17,7 +17,7 @@ dependencies{
     compile 'org.hibernate:hibernate-core:5.2.2.Final' //для jdbc - подключений
 }
 
-task testGroups(type: Test) {
+task testHybridGroups(type: Test) {
     useTestNG(){
         suites 'src/test/resources/testng-groups.xml'
     }
