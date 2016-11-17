@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c783d844-7fa4-44d7-892a-ab228e600ed6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../addressbook-hybrid/.idea/modules/addressbook-hybrid.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../addressbook-hybrid/.idea/modules/addressbook-hybrid_main.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../addressbook-hybrid/.idea/modules/addressbook-hybrid_test.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../addressbook-hybrid/src/test/resources/remote.properties" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/libraries/Gradle__com_google_code_gson_gson_2_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../addressbook-hybrid/.idea/modules/addressbook-web-tests.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../addressbook-hybrid/.idea/modules/addressbook-web-tests_main.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../addressbook-hybrid/.idea/modules/addressbook-web-tests_test.iml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/modules/addressbook-web-tests_main.iml" afterPath="$PROJECT_DIR$/../.idea/modules/addressbook-web-tests_main.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/modules/addressbook-web-tests_test.iml" afterPath="$PROJECT_DIR$/../.idea/modules/addressbook-web-tests_test.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../addressbook-hybrid/src/test/java/ru/stqa/pft/addressbook/appmanager/ApplicationManager.java" afterPath="$PROJECT_DIR$/../addressbook-hybrid/src/test/java/ru/stqa/pft/addressbook/appmanager/ApplicationManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../addressbook-hybrid/src/test/java/ru/stqa/pft/addressbook/appmanager/GroupHelper.java" afterPath="$PROJECT_DIR$/../addressbook-hybrid/src/test/java/ru/stqa/pft/addressbook/appmanager/GroupHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../addressbook-hybrid/src/test/java/ru/stqa/pft/addressbook/tests/GroupCreationTests.java" afterPath="$PROJECT_DIR$/../addressbook-hybrid/src/test/java/ru/stqa/pft/addressbook/tests/GroupCreationTests.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../addressbook-hybrid/src/test/resources/local.properties" afterPath="$PROJECT_DIR$/../addressbook-hybrid/src/test/resources/local.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
