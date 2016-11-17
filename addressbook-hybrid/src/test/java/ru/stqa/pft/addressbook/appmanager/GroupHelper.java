@@ -10,6 +10,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static org.testng.Assert.fail;
+
 /**
  * Created by Edward on 03.08.2016.
  */
@@ -69,6 +71,23 @@ public class GroupHelper extends BaseHelper {
         groupCashe = null;
         returnToGroupPage();
     }
+
+    public void graph() throws InterruptedException {
+            wd.findElement(By.linkText("Главная")).click();
+            wd.findElement(By.linkText("Проведенные процедуры")).click();
+            wd.findElement(By.linkText("Статистика процедур ГД график")).click();
+            wd.findElement(By.linkText("Отмена")).click();
+            wd.findElement(By.id("ctl31_ctl04_ctl07_ddDropDownButton")).click();
+            wd.findElement(By.id("ctl31_ctl04_ctl07_divDropDown_ctl00")).click();
+            wd.findElement(By.id("ctl31_ctl04_ctl07_divDropDown_ctl05")).click();
+            wd.findElement(By.id("ctl31_ctl04_ctl07_ddDropDownButton")).click();
+            wd.findElement(By.id("ctl31_ctl04_ctl00")).click();
+            for (int second = 0;; second++) {
+                if (second >= 60) fail("timeout");
+                try { if ("Статистика процедур ГД".equals(wd.findElement(By.xpath("//td[2]/table/tbody/tr/td/div")).getText())) break; } catch (Exception e) {}
+                Thread.sleep(1000);
+            }
+        }
 
 
     public void delete(GroupData group) {
