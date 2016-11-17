@@ -57,7 +57,7 @@ public class ApplicationManager {
             wd = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")),capabilities);
         }
 
-        dbHelper = new DbHelper();
+//        dbHelper = new DbHelper();
        //чтобы проверка элементов была мгновенной, нужно отключить тайм-аут или поставить значение 0
         wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         wd.get(properties.getProperty("web.baseUrl"));
