@@ -92,7 +92,9 @@ public class GroupHelper extends BaseHelper {
             wd.findElement(By.id("ctl31_ctl04_ctl00")).click();
             for (int second = 0;; second++) {
                 if (second >= 60) fail("timeout");
-                try { if ("Статистика процедур ГД".equals(wd.findElement(By.xpath("//td[2]/table/tbody/tr/td/div")).getText())) break; } catch (Exception e) {}
+                //try { if ("Статистика процедур ГД".equals(wd.findElement(By.xpath("//td[2]/table/tbody/tr/td/div")).getText())) break;
+                try { if (wd.findElement(By.xpath("//td[2]/table/tbody/tr/td/div")).getText().equals("Статистика процедур ГД")) break;
+                    } catch (Exception e) {}
                 Thread.sleep(1000);
             }
         }
